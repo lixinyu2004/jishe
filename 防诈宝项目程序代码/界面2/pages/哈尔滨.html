@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>防诈宝信息可视化平台</title>
+<link rel="icon" href="../../../../cover/html/img/Fevicon.png" type="image/png">
+
+    <link href="../css/Datacages_Homeindex.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/ProgressBarWars.css" rel="stylesheet" />
+    <style type="text/css">
+        *{padding: 0;margin: 0}
+       
+        .loadEffect{  width: 100px;  height: 100px;  position: relative;  margin: 0 auto; top: 26%}
+        .loadEffect span{animation: load 1.04s ease infinite;  display: inline-block;  width: 30px;  height: 10px;  border-top-left-radius: 5px;  border-bottom-left-radius: 5px;  background: lightgreen;  position: absolute;   }
+        .loadEffect span:nth-child(1){  left: 0;  top: 50%;  margin-top:-5px;  animation-delay:0.13s;  }
+        .loadEffect span:nth-child(2){  left: 10px;  top: 20px;  transform: rotate(45deg);  animation-delay:0.26s;  }
+        .loadEffect span:nth-child(3){  left: 50%;  top: 10px;  margin-left: -15px;  transform: rotate(90deg);  animation-delay:0.39s;  }
+        .loadEffect span:nth-child(4){  top: 20px;  right:10px;  transform: rotate(135deg);  animation-delay:0.52s;  }
+        .loadEffect span:nth-child(5){  right: 0;  top: 50%;  margin-top:-5px;  transform: rotate(180deg);  animation-delay:0.65s;  }
+        .loadEffect span:nth-child(6){  right: 10px;  bottom:20px;  transform: rotate(225deg);  animation-delay:0.78s;  }
+        .loadEffect span:nth-child(7){  bottom: 10px;  left: 50%;  margin-left: -15px;  transform: rotate(270deg);  animation-delay:0.91s;  }
+        .loadEffect span:nth-child(8){  bottom: 20px;  left: 10px;  transform: rotate(315deg);  animation-delay:1.04s;  }
+        .allnav{height: calc(100% - 30px);}
+        .mainbox{ padding:.1rem .1rem 0rem .1rem;}
+         mainbox>ul{}
+        .mainbox>ul>li{ float: left; padding: 0 .1rem}
+
+        .mainbox>ul>li{ width: 30%}
+         .mainbox>ul>li:nth-child(2){ width: 40%;padding: 0}
+        .boxall{ border: 1px solid rgba(25,186,139,.17); padding:0 .2rem .4rem .15rem;  background: rgba(255,255,255,.04) url(../images/line.png); background-size: 100% auto; position: relative; margin-bottom: .15rem; z-index: 10;}
+        .boxall:before,
+        .boxall:after{ position:absolute; width: .1rem; height: .1rem; content: "";  border-top: 2px solid #02a6b5; top: 0;}
+        .boxall:before,.boxfoot:before{border-left: 2px solid #02a6b5;left: 0;}
+        .boxall:after,.boxfoot:after{border-right: 2px solid #02a6b5; right: 0;}
+        .alltitle{ font-size:.2rem; color:#fff; text-align: center; line-height: .5rem;}
+        .tx{font-family: "Microsoft YaHei";color:aliceblue;background-color:rgba(4,29,108,0.4);}
+        .boxfoot{ position:absolute; bottom: 0; width: 100%; left: 0;}
+        .boxfoot:before,
+        .boxfoot:after{ position:absolute; width: .1rem; height: .1rem;  content: "";border-bottom: 2px solid #02a6b5; bottom: 0;}
+        .clearfix:after, .clearfix:before {display: table;content: " "}
+        .clearfix:after {clear: both}
+       
+        @keyframes load{
+            0%{
+                opacity: 1;
+            }
+            100%{
+                opacity: 0.2;
+            }
+        }
+        html,body{width: 100%;height: 100%}
+        #loading{background-color: #181e20;opacity: 0.5;width: 100%;height: 100%;position: fixed;z-index: 999}
+    </style>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/echarts-all.js"></script>
+    <script src="../js/echarts.min.js"></script>
+    <script src="../js/哈尔滨.js"></script>
+    <script src="../js/ProgressBarWars.js"></script>
+    <style>
+        *{padding: 0;margin: 0}
+        .progress{
+            margin-top: 30px;
+        }
+        .down_span{color: #dfdede;font-size: 12px;font-weight: lighter}
+        h3,ul,li{margin:0;padding:0; list-style:none;}
+        .scrollbox{ width: 268px; margin: 0 auto;  }
+        #scrollDiv{width:268px;height:280px; overflow:hidden;}/*这里的高度和超出隐藏是必须的*/
+        #scrollDiv ul li{height:30px; width:259px; ;background-color: #07325e; overflow:hidden; margin-bottom: 4px;color: #dfdede;font-size: 14px;padding: 0 9px 0 9px;line-height: 30px;position: relative}
+        #scrollDiv ul li span{position: absolute;bottom:5px;right: 16px;display: block;width: 68px;height: 18px;text-align: center;color: #081e49;background-color: #69c200;line-height: 18px}
+.sent-div{
+    width: 98%;
+    height: 98%;
+    margin: 0 auto;
+
+}
+    .vd{
+        width: 380px;
+        height:180px;
+        
+    }
+ .w{
+    margin: 0 auto;
+ }
+
+    </style>
+
+
+    <title>“大数据分析“ 哈尔滨市诈骗大数据综合分析平台</title>
+</head>
+<body >
+<!--标题栏-->
+<div class="Hometitlebox w">
+    <a style=" color: #00e4ff;" href="Datacages_Homeindex.html">哈尔滨市电信诈骗大数据综合分析平台</a>
+</div>
+<div class="flasheffectoutbox w" style="height: 1500px;">
+   
+
+    <div class=".tx" style="color: #fff;">
+        <br>
+        
+        <h3 style="text-align: center;">常见诈骗类型</h3>
+                    <br>
+                    <p>
+                        <h4>1.虚假贷款诈骗</h4>虚假贷款诈骗是一种常见的诈骗手段，骗子通过发布虚假的贷款信息，诱导受害者进行一系列操作，最终达到骗取钱财的目的。<br>
+                   </p>
+                   <img src="../视频1/虚假贷款.png" width="30%" height="250px" style="display:inline; text-align: center;margin-left: 10%;" alt="图片正在加载" title="刷单" >
+                    <video  style="display: inline;text-align:center; margin-left: 8%;" width="47%" height="200px" controls>
+                        <source src="../视频1/贷款.mp4" type="video/mp4">
+                      
+                      </video>
+                   
+                   
+                  
+                   <p>
+                    <h4>2.投资理财</h4>骗子通常会以高收益、低风险的投资项目为诱饵，吸引受害者投资，一旦受害者投入资金，骗子就会消失，携款潜逃
+                   </p>
+                   <video  style="display: inline;text-align:center; margin-left: 25%;" width="50%" height="200px" controls>
+                    <source src="../视频1/投资理财.mp4" type="video/mp4">
+                  
+                  </video>
+                   <p>
+                        <h4>3.兼职刷单诈骗</h4>以高额回报为诱饵，要求受害者先行垫付款项购买商品，然后以各种理由拒绝退款，骗取受害者的钱财。
+                    </p>
+                    <img src="../视频1/刷单.jpg" width="30%" height="250px" style="display:inline; text-align: center;margin-left: 10%;" alt="图片正在加载" title="刷单" >
+                    <video  style="display: inline;text-align:center; margin-left: 8%;" width="47%" height="200px" controls>
+                        <source src="../视频1/刷单.mp4" type="video/mp4">
+                      
+                      </video>
+                    <p> 
+                        <h4>4.冒充客服类</h4>冒充客服类诈骗是一种常见的电信诈骗方式，诈骗者通常会假装成正规公司的客服人员，利用受害者对
+                        该公司的信任进行欺诈。
+                    </p>
+                  <video  style="display: inline;text-align:center; margin-left: 25%;" width="50%" height="200px" controls>
+                    <source src="../视频1/冒充客服.mp4" type="video/mp4">
+                  
+                  </video>
+               
+                  <p>
+                    <h4>5.冒充熟人诈骗</h4>通过盗取或模仿他人社交账号，冒充受害者的亲友，以急需用钱等紧急情况为由，诱导受害者转账。
+
+               </p>
+               <video  style="display: inline;text-align: center;margin-left: 25%;"  width="50%" height="180px" controls>
+                   <source src="../视频1/冒充熟人.mp4" type="video/mp4">
+             </video>
+            
+                
+                 
+    </div>
+      
+    <div class="fltdecarround fltdecarroundleft fltdecarroundtop"></div>
+    <div class="fltdecarround fltdecarroundtop fltdecarroundright "></div>
+    <div class="fltdecarround fltdecarroundleft fltdecarroundbottom"></div>
+    <div class="fltdecarround fltdecarroundbottom fltdecarroundright "></div>-
+    
+</div>
+
+<!--弹出功能-->
+<div class="popuofunxtionbox">
+    <!--标题-->
+    <div class="popupboxtitlebox">
+        <span class="popupboxtitlemsg">xxxx审批系统数据分析</span> 
+        <div class="popupboxclose"></div>
+    </div>
+</div>
+
+<!--侧边浮窗-->
+<div class="fltoutbox leftbox w">
+    <div class="boxall" style="height:300px;margin-bottom: 20px;">
+        <div style="color: #fff;margin-top: 60px;text-align: center;">常见诈骗类型</div>
+        <div class="allnav" id="echart1"></div>
+        <div class="boxfoot"></div>  
+        
+        <div class="fltdecarround fltdecarroundleft fltdecarroundtop"></div>
+        <div class="fltdecarround fltdecarroundtop fltdecarroundright "></div>
+        <div class="fltdecarround fltdecarroundleft fltdecarroundbottom"></div>
+        <div class="fltdecarround fltdecarroundbottom fltdecarroundright "></div>-
+   </div>
+    <!--左下分析内容放置框-->
+    <div class="analyzemsgbgbox" style="margin:0 auto;margin-top: 30px; width: 100%; height: 350px;overflow: hidden;">
+        <span class="analyzedatashowtitle" style="line-height: 66px;margin-left: 38px">【哈尔滨诈骗新闻】</span>
+        <div class="scrollbox">
+            <div id="scrollDiv">
+                <ul>
+                   
+                    <li>
+                        <a href="https://www.360kuai.com/pc/96a80877564fffda4?cota=3&kuai_so=1&refer_scene=so_3&sign=360_da20e874" target="_blank">第二届中国（哈尔滨）新闻出版产业融合发展论坛暨重点项目推介会在哈尔滨举行</a>
+                    </li>
+                    <li>
+                        <a href="https://www.my399.com/p/308316.html" target="_blank">哈市刑侦战线持续推动“反诈护游模式”
+                            </a>
+                    </li>
+                    <li>
+                        <a href="https://www.360kuai.com/pc/99db338f195bb275d?cota=3&kuai_so=1&refer_scene=so_3&sign=360_da20e874" target="_blank">哈尔滨市平房区：反诈宣传“零距离” 筑牢护游“安全网”！</a>
+                    </li>
+                    <li>
+                        <a href="https://www.chinahlj.cn/news/771590.html" target="_blank">进景区、进校园、进社区 哈尔滨市公安局道外分局开展反诈宣传“三进”活动</a>
+                    </li>
+                    <li>
+                        <a href="https://www.chinahlj.cn/news/771366.html" target="_blank">哈尔滨市公安局道里分局开展反诈法颁布一周年宣传活动
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.chinahlj.cn/news/770209.html" target="_blank">哈尔滨市南岗公安走进高校开展反诈教育必修课 </a>
+                    </li>
+                    <li>
+                        <a href="https://news.youth.cn/sh/202309/t20230925_14812052.htm" target="_blank">哈尔滨工程大学学生代表向全国大学生发出倡议：共筑校园反诈防线 让青春无诈
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://hlj.cnr.cn/jrfc/20230922/t20230922_526429906.shtml" target="_blank">哈尔滨银行联合中国青年报社举办“青春无诈” 校园反诈防骗短视频征集活动
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://m.cyol.com/gb/articles/2023-09/22/content_PbQbJYTx0B.html" target="_blank">““共筑校园反诈防线 让青春无诈” 哈尔滨工程大学学生代表向全国大学生发出倡议</a>
+                    </li>
+                    <li>
+                        <a href="https://palj.dbw.cn/system/2023/08/25/059195108.shtml" target="_blank">哈尔滨市公安局道外分局开展“警民同心 共筑安全”反诈宣讲活动</a>
+                    </li>
+                </ul>
+            </div>
+            <script type="text/javascript">
+                    $("#scrollDiv").Scroll({line:1,speed:500,timer:5000,up:"but_up",down:"but_down"});
+            </script>
+        </div>
+        <div class="fltdecarround fltdecarroundleft fltdecarroundtop"></div>
+        <div class="fltdecarround fltdecarroundtop fltdecarroundright "></div>
+        <div class="fltdecarround fltdecarroundleft fltdecarroundbottom"></div>
+        <div class="fltdecarround fltdecarroundbottom fltdecarroundright "></div>-
+        </div>
+        
+        <div class="boxall" style="height:300px;margin-bottom: 20px;">
+            <div style="color: #fff;margin-top: 10px;text-align: center;">哈尔滨公安反诈</div>
+            <video  style="display: inline;text-align: center;margin-left: 10%;margin-top: 20px;"  width="75%" height="220px" controls>
+                <source src="../视频1/公安.mp4" type="video/mp4">
+            </video>
+            <div class="fltdecarround fltdecarroundleft fltdecarroundtop"></div>
+            <div class="fltdecarround fltdecarroundtop fltdecarroundright "></div>
+            <div class="fltdecarround fltdecarroundleft fltdecarroundbottom"></div>
+            <div class="fltdecarround fltdecarroundbottom fltdecarroundright "></div>-
+       </div>
+    </div>
+   
+</div>
+
+<div class="fltoutbox rightbox w">
+    <div class="boxall" style="height: 300px;">
+        <div style="color: #fff;margin-top: 60px;text-align: center;">性别分布</div>
+        <div class="allnav" id="echart2"></div>
+        <div class="boxfoot"></div>
+          
+          
+        <div class="fltdecarround fltdecarroundleft fltdecarroundtop"></div>
+        <div class="fltdecarround fltdecarroundtop fltdecarroundright "></div>
+        <div class="fltdecarround fltdecarroundleft fltdecarroundbottom"></div>
+        <div class="fltdecarround fltdecarroundbottom fltdecarroundright "></div>-
+      </div>
+    <!--右下分析内容放置框-->
+    <div class="analyzemsgbgbox" style="margin-top: 30px; height: 350px;overflow: hidden;">
+        <div style="color: #fff;margin-top: 20px;text-align: center;">哈尔滨市诈骗信息云图</div>
+        <img src="../img/哈尔滨.png" width="250px" height="280px" style="text-align: center;margin-left: 70px;margin-top: 10px;" alt="图片正在加载" title="哈尔滨市诈骗信息云图" >
+       
+        <div class="fltdecarround fltdecarroundleft fltdecarroundtop"></div>
+        <div class="fltdecarround fltdecarroundtop fltdecarroundright "></div>
+        <div class="fltdecarround fltdecarroundleft fltdecarroundbottom"></div>
+        <div class="fltdecarround fltdecarroundbottom fltdecarroundright "></div>-
+    </div>
+    <div class="boxall" style="height:300px;margin-bottom: 20px;">
+        <div style="color: #fff;margin-top: 60px;text-align: center;">诈骗方式分布</div>
+        <div class="allnav" id="echart3"></div>
+        <div class="boxfoot"></div>  
+        
+        <div class="fltdecarround fltdecarroundleft fltdecarroundtop"></div>
+        <div class="fltdecarround fltdecarroundtop fltdecarroundright "></div>
+        <div class="fltdecarround fltdecarroundleft fltdecarroundbottom"></div>
+        <div class="fltdecarround fltdecarroundbottom fltdecarroundright "></div>-
+   </div>
+</div>
+    
+ 
+   
+
+</body>
+<script>
+    window.onload = function(){
+        var loading = document.getElementById("loading");
+        loading.style.display="none";
+    }
+</script>
+<script>
+
+    var salesMyChart = echarts.init($("#container1")[0]);
+    option = {
+
+
+
+
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+
+        visualMap: {
+            show: false,
+            min: 80,
+            max: 600,
+            inRange: {
+                colorLightness: [0, 1]
+            }
+        },
+        series : [
+            {
+                name:'数据传输量',
+                type:'pie',
+                radius : '55%',
+                center: ['50%', '50%'],
+                data:[
+                    {value:335, name:'系统一'},
+                    {value:310, name:'系统二'},
+                    {value:274, name:'系统三'},
+                    {value:235, name:'系统四'},
+                    {value:400, name:'系统五'}
+                ].sort(function (a, b) { return a.value - b.value; }),
+                roseType: 'radius',
+                label: {
+                    normal: {
+                        textStyle: {
+                            color: 'rgba(255, 255, 255, 0.5)'
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        lineStyle: {
+                            color: 'rgba(255, 255, 255, 0.3)'
+                        },
+                        smooth: 0.2,
+                        length: 10,
+                        length2: 20
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#c23531',
+                        shadowBlur: 200,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                },
+
+                animationType: 'scale',
+                animationEasing: 'elasticOut',
+                animationDelay: function (idx) {
+                    return Math.random() * 200;
+                }
+            }
+        ]
+    };
+    salesMyChart.setOption(option);
+
+</script>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>防诈宝信息可视化平台</title>
+    <link rel="icon" href="../../../../cover/html/img/Fevicon.png" type="image/png">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style2.0.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $('.myscroll').myScroll({
+                speed: 60, //数值越大，速度越慢
+                rowHeight: 38 //li的高度
+            });
+        })
+
+    </script>
+</head>
+<body>
+<!--头部-->
+<header id="header">
+    <div class="header">
+        <h1 class="">北京市反诈大数据综合管控平台</h1>
+    </div>
+</header>
+
+<!--内容-->
+<section id="data_content">
+
+  
+    
+
+    <div class="data_content">
+        <!--左边-->
+        <div class="data_left fl">
+            <div class="left_top">
+                <!--/*左边第一部分*/-->
+                <div class="info public" style="height: 350px;">
+                    <div class="min-title">
+                        <span>电信诈骗类型分布</span>
+                    </div>
+                    <div id="char4" style="width:100%;height: 100%;"></div>
+                    <div class="boxfoot"></div>
+                </div>
+                <!--左边第二部分-->
+                <div class="top_bottom public">
+                    <div class="min-title">
+                        <span>年龄统计</span>
+                    </div>
+                    <div id="echarts_1" style="width:100%;height: 100%;"></div>
+                    <div class="boxfoot"></div>
+                </div>
+                <!--左边第三部分-->
+                <div class="left_bottom public">
+                    <div class="min-title">
+                        <span>北京市诈骗信息云图</span>
+                    </div>
+                    <img src="../../img/北京.png" width="100%" height="100%" alt="图片正在加载" title="北京市诈骗信息云图"  style="text-align: center;">
+                    <div id="chart_2" style="width:0%;height: 0%;"></div>
+                    <div class="boxfoot"></div>
+                  
+                </div>
+            </div>
+        </div>
+        <!--中间-->
+        <div class="data_c fl" style="margin-top:-10pxpx;">
+            <div class="data_c_1" tyle="height: 400px;">
+
+
+                <div id="contPar" class="contPar" style="height: 500px;">
+                    <div id="page1"  style="z-index:1">
+                        <div class="title0">诈骗综合管控平台</div>
+                        <div class="title1">电信，杀猪盘，投资，刷单</div>
+
+
+                        <div id="drag-container" style="z-index: 1 ;margin-top: 20px;">
+                            <div id="spin-container" style="margin-top: 20px;">
+
+                                <img alt="" class="infoBtn" src="picture/page1_0.png">
+                                <img alt="" class="" src="picture/page1_1.png">
+                                <img alt="" class="" src="picture/page1_2.png">
+                                <img alt="" class="" src="picture/page1_1.png">
+                                <img alt="" class="" src="picture/page1_2.png">
+
+                            </div>
+                            <div id="ground"></div>
+                        </div>
+
+                        <img alt="" class="img3 png" src="images/newdz.png" >
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="data_c_2 public">
+                <div class="min-title">
+                    <span>北京市举报信息统计</span>
+                </div>
+                <div id="echart4" style="width: 100%;height: 100%;padding-top: 10px;"></div>
+                <div class="boxfoot"></div>
+            </div>
+        </div>
+        <!--右边-->
+        <div class="data_right fr">
+            <div class="right_top">
+                <!--/*右边第一部分*/-->
+                <div class="right_info public" style="height: 350px;">
+                    <div class="min-title">
+                        <span>北京反诈新闻</span>
+                    </div>
+                    <div class="echart wenzi">
+                       
+                        <!--<div class="gun">
+                            <span>小型车</span>
+                            <span>中型车</span>
+                            <span>大型车</span>
+                        </div>-->
+                        <div id="FontScroll" class="myscroll">
+                            <ul>
+                                <li>
+                                    <div class="fontInner clearfix">
+                                      
+                                        <a href="http://bj.people.com.cn/n2/2024/0201/c82840-40734592.html " target="_blank" style="color: aliceblue;width: 20px;">警方破获北京首例区块链游戏诈骗案</a>
+                                    
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fontInner clearfix">
+                                        <a href="https://news.bjd.com.cn/2024/01/31/10691664.shtml" target="_blank" style="color: aliceblue; width: 80%">5人600余万元被骗！北京丰台破获区块链游戏诈骗案</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fontInner clearfix">
+                                        <a href="https://beijing.qianlong.com/2024/0123/8189862.shtml" target="_blank" style="color: aliceblue;width: 80%">2024年北京市人大常委会拟对反电信网络诈骗法等开展执法检查</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fontInner clearfix">
+                                        <a href="https://www.360kuai.com/pc/9f4724464b5e653ad?cota=3&kuai_so=1&refer_scene=so_3&sign=360_da20e874" target="_blank" style="color: aliceblue; width: 80%">朝阳群众又立功！北京男子1天刷400万买光金条，买黄金如买白菜，店员觉得不对劲报警，警方：电信诈骗的赃款</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fontInner clearfix">
+                                        <a href="https://www.360kuai.com/pc/907dd9e873f3c5a1b?cota=3&kuai_so=1&refer_scene=so_3&sign=360_da20e874" target="_blank" style="color: aliceblue; width: 80%">北京铁路旅客遇电话诈骗，铁警发布春运安全提示</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fontInner clearfix">
+                                      
+                                    <a href="https://www.360kuai.com/pc/9916405e3913964f5?cota=3&kuai_so=1&refer_scene=so_3&sign=360_da20e874" target="_blank"style="color: aliceblue; width: 80%">北京法院打击养老诈骗犯罪 共计追赃挽损3700余万元</a>
+                                    </div>
+                                </li>
+                                <li>
+                                <div class="fontInner clearfix">
+                                    <a href="https://www.360kuai.com/pc/93f99ff60eb253345?cota=3&kuai_so=1&refer_scene=so_3&sign=360_da20e874" target="_blank" style="color: aliceblue; width: 80%">北京警方严打电信网络诈骗犯罪 五年端掉千余涉诈窝点</a>
+                                
+                                </div>
+                                </li>
+                                <li>
+                                    <div class="fontInner clearfix">
+                                        <a href="https://www.360kuai.com/pc/97c890448dbd00f0c?cota=3&kuai_so=1&refer_scene=so_3&sign=360_da20e874 " target="_blank" style="color: aliceblue; width: 80%">北京警方打击电信网络诈骗犯罪 打掉1200余个涉诈团伙窝点</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fontInner clearfix">
+                                        <a href="https://www.360kuai.com/pc/948133d490433c2ac?cota=3&kuai_so=1&refer_scene=so_3&sign=360_da20e874" target="_blank" style="color: aliceblue;width: 80%"> 北京警方解析电信网络诈骗犯罪常见类型 发布三提示</a>
+                                    </div>
+                                </li>
+                              
+
+
+                            </ul>
+                          
+                        </div>
+                    </div>
+
+                    <div class="boxfoot"></div>
+                </div>
+                <!--右边第二部分-->
+                <div class="right_content public">
+                    <div class="min-title">
+                        <span>诈骗案数目逐月变化趋势</span>
+                    </div>
+                    <div id="chart_3" style="width:100%;height: 100%;"></div>
+                    <div class="boxfoot"></div>
+                </div>
+                <!--右边第三部分-->
+                <div class="right_bottom public">
+                    <div class="min-title">
+                        <span>诈骗类型</span>
+                    </div>
+                    <div id="echarts_2" style="width:100%;height: 100%;padding-top: 10px;"></div>
+                    <div class="boxfoot"></div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</section>
+
+
+
+
+<script src="js/script.js"></script>
+<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script src="https://www.jq22.com/jquery/echarts-4.2.1.min.js"></script>
+<script src="js/echart.js"></script>
+<script src="js/fontscroll.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>防诈宝信息可视化平台</title>
+<link rel="icon" href="../../../../cover/html/img/Fevicon.png" type="image/png">
+
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style2.0.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $('.myscroll').myScroll({
+                speed: 60, //数值越大，速度越慢
+                rowHeight: 38 //li的高度
+            });
+        })
+
+    </script>
+</head>
+<body>
+<!--头部-->
+<header id="header">
+    <div class="header">
+        <h1 class="">银川诈骗信息数据</h1>
+    </div>
+</header>
+
+<!--内容-->
+<section id="data_content">
+
+
+    <div class="data_content">
+        <!--左边-->
+        <div class="data_left fl">
+            <div class="left_top">
+                <!--/*左边第一部分*/-->
+                <div class="info public">
+                    <div class="min-title">
+                        <span>“断卡”“断流”专项行动</span>
+                    </div>
+                    <div id="char4" style="width:100%;height: 100%;"></div>
+                    <div class="boxfoot"></div>
+                </div>
+                <!--左边第二部分-->
+                <div class="top_bottom public">
+                    <div class="min-title">
+                        <span>诈骗工具</span>
+                    </div>
+                    <div id="echarts_1" style="width:100%;height: 100%;"></div>
+                    <div class="boxfoot"></div>
+                </div>
+                <!--左边第三部分-->
+                <div >
+                    <div>
+
+                    </div>
+                    <div id="chart_2" style="width:100%;height: 100%;"></div>
+
+                </div>
+            </div>
+        </div>
+        <!--中间-->
+        <div class="data_c fl">
+            <div class="data_c_1">
+
+
+                <div id="contPar" class="contPar">
+                    <div id="page1"  style="z-index:1">
+                        <div class="title0">诈骗数据可视化平台</div>
+
+
+
+                        <div id="drag-container" style="z-index: 1">
+                            <div id="spin-container">
+
+                                <img alt="" class="infoBtn" src="picture/page1_0.png">
+                                <img alt="" class="" src="picture/page1_1.png">
+                                <img alt="" class="" src="picture/page1_2.png">
+                                <img alt="" class="" src="picture/page1_1.png">
+                                <img alt="" class="" src="picture/page1_2.png">
+
+                            </div>
+                            <div id="ground"></div>
+                        </div>
+
+                        <img alt="" class="img3 png" src="images/newdz.png" >
+                    </div>
+                </div>
+
+
+            </div>
+            <div >
+
+                <div id="echart4" style="width: 100%;height: 100%;padding-top: 10px;"></div>
+
+            </div>
+        </div>
+        <!--右边-->
+        <div class="data_right fr">
+            <div class="right_top">
+                <!--/*右边第一部分*/-->
+                <div class="right_info public">
+                    <div class="min-title">
+                        <span>近期案例</span>
+                    </div>
+                    <div class="echart wenzi">
+                        <div class="gun">
+                            <span>诈骗类型</span>
+                            <span>诈骗金额</span>
+                            <span>转账次数</span>
+                        </div>
+                        <div id="FontScroll" class="myscroll">
+                            <ul>
+                                <li>
+                                    <div class="fontInner clearfix">
+                                        <span >杀猪盘</span>
+                                        <span>105.6万</span>
+                                        <span>22次</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fontInner clearfix">
+                                        <span >交友诈骗</span>
+                                        <span>36万</span>
+                                        <span>12次</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fontInner clearfix">
+                                        <span >刷单返利</span>
+                                        <span>69.9万</span>
+                                        <span>19次</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fontInner clearfix">
+                                        <span >网络贷款</span>
+                                        <span>65万</span>
+                                        <span>多次</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fontInner clearfix">
+                                        <span >冒充公检法</span>
+                                        <span>72万</span>
+                                        <span>21次</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fontInner clearfix">
+                                        <span >冒充熟人</span>
+                                        <span>86万</span>
+                                        <span>1次</span>
+                                    </div>
+                                </li><li>
+                                <div class="fontInner clearfix">
+                                    <span >冒充客服</span>
+                                    <span>42.9万</span>
+                                    <span>6次</span>
+                                </div>
+                            </li>
+                                <li>
+                                    <div class="fontInner clearfix">
+                                        <span >虚假服务</span>
+                                        <span>34.3万</span>
+                                        <span>10次</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fontInner clearfix">
+                                        <span >虚假征信</span>
+                                        <span>30.5万</span>
+                                        <span>9次</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fontInner clearfix">
+                                        <span >游戏产品交易</span>
+                                        <span>5.4万</span>
+                                        <span>5次</span>
+                                    </div>
+                                </li>
+
+
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="boxfoot"></div>
+                </div>
+                <!--右边第二部分-->
+                <div class="right_content public">
+                    <div class="min-title">
+                        <span>案件数据</span>
+                    </div>
+                    <div id="chart_3" style="width:100%;height: 100%;"></div>
+                    <div class="boxfoot"></div>
+                </div>
+                <!--右边第三部分-->
+                <div >
+
+                    <div id="echarts_2" style="width:100%;height: 100%;padding-top: 10px;"></div>
+<!--                    <div class="boxfoot"></div>-->
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</section>
+
+<script src="js/script.js"></script>
+<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+<script src="js/echarts.min.js"></script>
+<script src="js/echart.js"></script>
+<!--<script type="text/javascript" src="js/com.js"></script>-->
+<script src="js/index.js"></script>
+<script src="js/fontscroll.js"></script>
+
+
+</body>
+</html>

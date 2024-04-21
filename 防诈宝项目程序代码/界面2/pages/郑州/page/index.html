@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>							
+<head>
+<title>防诈宝信息可视化平台</title>
+<link rel="icon" href="../../../../cover/html/img/Fevicon.png" type="image/png">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <link rel="stylesheet" href="https://www.jq22.com/jquery/bootstrap-3.3.4.css">
+    <link href="../static/js/pluginsPackage/swiper/swiper.min.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/style.css" rel="stylesheet" type="text/css"></link>
+	  <link href="../static/css/office_efficiency_index.css" rel="stylesheet" type="text/css"></link>
+	  <script type="text/javascript">
+      //埋点全局变量
+      var gDataGather={
+          systemCode:"dataanalysis",
+          systemName:"CRM数据分析",
+          moduleCode:"dataanalysis-m001",
+          moduleName:"稳定运营",
+          pageCode:"dataanalysis-m001-p0007",
+          pageName:"厅店效能分析",
+          param:"{}"
+      }
+   </script>
+   
+</head> 
+<body>
+    <div class="container-fluid container-bg office-efficiency-index">
+	    <div class="row  office-header">
+	        <div class="col-sm-12 col-md-12 pd  title-info">郑州市反诈大数据统计平台</div>
+	        <div class="col-sm-5  col-md-5 pd analysis-info">XXXX-XXXX</div>
+	        <div class="col-sm-7  col-md-7 pd analysis-filter">
+              <table style="width:100%;height:48px;">
+	              <tr>
+	                  <td style="width:70%;text-align:right;">
+	                  </td>
+	                  <td style="width:15%;text-align:right;padding-left:10px;color:#fff;font-size:14px;font-weight:bold;" id="td-data-date">
+	                     <!-- <input type="text" id="data-date" name="dataDate" class="form-control" style="width:100px;"/> -->
+	                  </td>
+	                  
+	              </tr>
+              </table>
+	        </div>
+	        <!--地域渠道条件选择-->
+	        <div id="select-group-channel-tablebar" class="select-group-channel-tablebar">
+				 <div class="row">
+			       <div class="col-sm-2  col-md-2 pd" style="color:#fff;height:40px;line-height:35px;margin-top:15px;text-align:right;width:110px;font-size:15px;">地域选择：</div>
+			       <div class="col-sm-4  col-md-4 pd" style="height:40px;margin-top:15px;">
+			           <input type="text" id="selectCity" name="cityCode" class="form-control" style="width:150px;"/>
+			       </div>
+			       <div class="col-sm-2  col-md-2 pd" style="color:#fff;height:40px;line-height:35px;margin-top:15px;text-align:right;width:110px;font-size:15px;">区域选择：</div>
+			       <div class="col-sm-4  col-md-4 pd" style="height:40px;margin-top:15px;">
+			           <input type="text" id="selectCounty" name="countyCode" class="form-control" style="width:150px;"/>
+			       </div>
+				 </div>
+				 <div class="row">
+				      <div class="col-sm-2  col-md-2 pd" style="color:#fff;height:40px;line-height:35px;margin-top:15px;text-align:right;width:110px;font-size:15px;">渠道名称：</div>
+				      <div class="col-sm-6  col-md-6 pd" style="height:40px;margin-top:15px;">
+				         <input type="text" id="channel_name" name="channelName" class="form-control" style="width:330px;" placeHolder=""/>
+				      </div>
+				      <div class="col-sm-4  col-md-4 pd" style="height:40px;margin-top:15px;text-align:center;">
+				          <button type="button" class="btn btn-info btn-sm" style="height:35px;width:70px;margin-left:10px;background:#181C41;" onclick="doQueryChannelName();">查询</button>
+				          <button type="button" class="btn btn-info btn-sm" style="height:35px;width:70px;background:#282C55;" onclick="doRestChannelName();">重置</button>	
+				     </div>
+				 </div>
+		    </div>
+	    </div>
+	    <div class="row  office-header-content">
+	         <div class="col-sm-3 col-md-3 pd">
+	        <div  class="col-info">
+	               <div class="title">郑州市诈骗信息云图</div>
+	               <div class="content base-info" id="base-info">
+	                 <table>
+						
+        <img src="../../../img/郑州.png" width="280px" height="250px" style="text-align: center;margin-left: 20px;margin-top: 10px;" alt="图片正在加载" title="南京市诈骗信息云图" >
+	                   
+	                       <td rowspan="2"><div id="integral_echart" ></div></td>
+	                      
+	                    </tr>
+	                  
+	                 </table>
+	               </div>
+	            </div>
+	         </div>
+	         <div class="col-sm-6 col-md-6 pd">
+	            <div  class="col-info" >
+	               <div class="title">各种诈骗类型变化趋势 </div>
+	               <div class="content" id="channel_handle_detail"></div>
+	            </div>
+	         </div>
+	         
+	         <div class="col-sm-3 col-md-3 pd device-info-col">
+	            <div  class="col-info" style="height: 370px;">
+					<div class="title">反诈新闻</div>
+					<div >
+						<ul>
+							<li style="height: 30px;">
+								<a href="http://gov.hnr.cn/hkt/article/1/1745370508527341570" target="_blank" style="color: aliceblue;font-size: 15px;">&nbsp;郑州高新区石佛办事处西湖春天社区开展反诈活动</a>
+							</li>
+							<li style="height: 30px;">
+								<a href="https://k.sina.com.cn/article_2716593467_a1ebed3b04001pjbz.html" target="_blank" style="color: aliceblue;font-size: 15px;text-align: center;">&nbsp;郑州市公安局反诈中心每日提醒！</a>
+							</li>
+							<li style="height: 30px;">
+								<a href="https://news.cpd.com.cn/n12021581/n12021597/124/t_1118278.html" target="_blank" style="color: aliceblue;font-size: 15px;text-align: center;">&nbsp;郑州金水：开展“禁毒+反诈”宣传进校园活动</a>
+							</li>
+							<li style="height: 30px;">
+								<a href="http://henan.china.com.cn/finance/2023-09/28/content_42541026.htm" target="_blank" style="color: aliceblue;font-size: 15px;text-align: center;"> &nbsp;中信银行郑州分行反诈宣传活动再升级</a>
+								
+							</li>
+							<li style="height: 30px;">
+								 <a href="https://hn.ifeng.com/c/8T6MX2BDFzM" target="_blank" style="color: aliceblue;font-size: 15px;text-align: center;"> &nbsp;中信银行郑州分行开展“警银携手”观影活动</a>
+							</li>
+							<li style="height: 30px;">
+								<a href="http://henan.people.com.cn/n2/2023/0908/c378397-40562719.html" target="_blank" style="color: aliceblue;font-size: 15px;text-align: center;">&nbsp;中信银行郑州分行反诈宣传活动</a>
+							</li>
+							<li style="height: 30px;">
+								<a href="https://www.360kuai.com/pc/9d57cb51e2bd7dc74?cota=3&kuai_so=1&refer_scene=so_3&sign=360_da20e874" target="_blank" style="color: aliceblue;font-size: 15px; text-align: center;">&nbsp;多方共筑“防火墙” 全民反诈郑州地铁在行动
+								</a>
+							</li>
+							<li style="height: 30px;">
+								<a href="https://hn.ifeng.com/c/8SX2u7NmTJ1" target="_blank" style="color: aliceblue;font-size: 15px;text-align: center;">&nbsp;中信银行郑州分行基层党支部开展“携手反诈</a>
+							</li>
+							<li style="height: 30px;">
+								<a href="http://gov.hnr.cn/lyb/article/1/1694636973637431298" target="_blank" style="color: aliceblue;font-size: 15px;text-align: center;">&nbsp;郑州市管城区十八里河街道：观看反诈电影 </a>
+							</li>
+							<li style="height: 30px;">
+								<a href="http://henan.people.com.cn/n2/2023/0809/c378397-40525284.html" target="_blank" style="color: aliceblue;font-size: 15px;text-align: center;"> &nbsp;中信银行郑州分行：上门服务筑防线 反诈宣传零距离</a>
+							</li>
+					  </ul>
+						</div>
+	            </div>
+	         </div>-
+	         <div class="col-sm-5 col-md-5 pd time-step-col" style="height: 300px; margin-left: 150px;" >
+	            <div  class="col-info" style="height: 300px; width: 500px;">
+	               <div class="title">各种诈骗类型分布</div>
+	               <div class="content" id="time-step-detial" style="height: 260px; width: 480px;"></div>
+	            </div>
+	         </div>
+	         <div class="col-sm-4 col-md-4 pd business-type-time-col" style="margin-left: 70px;">
+	            <div  class="col-info" style="height: 300px;">
+	               <div class="title">受害人男女比例</div>
+	               <div class="content" id="business-type-time-detial" style="height: 260px;"></div>
+	            </div>
+	         </div>
+	    </div>
+    </div>
+    <!--特效动画效果-->
+	<div id="query-page-data" style="display:none" onclick="loadPageData()"  sa-gatherClick="true" elementCode="dataanalysis-m001-p0007-e00001"  elementName="查询数据"></div>
+	<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+	<script src="https://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
+	<script src="../static/js/pluginsPackage/swiper/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="https://www.jq22.com/jquery/echarts-4.2.1.min.js"></script>
+	<script src="../static/js/office_efficiency_data.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../static/js/office_efficiency_index.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

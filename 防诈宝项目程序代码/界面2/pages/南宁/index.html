@@ -1,0 +1,163 @@
+﻿<!--
+访问地址：https://paycloud.vip
+
+ -->
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+  <title>防诈宝信息可视化平台</title>
+    <link rel="icon" href="../../../../cover/html/img/Fevicon.png" type="image/png">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/echarts.min.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="js/jquery.limarquee.js"></script>
+<script type="text/javascript" src="js/jquery.cxselect.min.js"></script>
+<link rel="stylesheet" href="css/comon0.css">
+</head>
+<body>
+<div style="background:#000d4a url(images/bg.jpg) center top;">
+  <div class="loading">
+    <div class="loadbox"> <img src="picture/loading.gif"> 页面加载中... </div>
+  </div>
+  <div class="back"></div>
+  <div class="head">
+    <h1>南宁市反诈大数据管理平台</h1>
+    <div class="weather"><span id="showTime"></span></div>
+	    </div>
+    <script>
+/*var t = null;
+    t = setTimeout(time,1000);//開始运行
+    function time()
+    {
+       clearTimeout(t);//清除定时器
+       dt = new Date();
+		var y=dt.getFullYear();
+		var mt=dt.getMonth()+1;
+		var day=dt.getDate();
+       var h=dt.getHours();//获取时
+       var m=dt.getMinutes();//获取分
+       var s=dt.getSeconds();//获取秒
+       document.getElementById("showTime").innerHTML = y+"年"+mt+"月"+day+"日"+h+"时"+m+"分"+s+"秒";
+       t = setTimeout(time,1000); //设定定时器，循环运行
+    }*/
+</script>
+  <div class="mainbox">
+    <ul class="clearfix">
+      <li>
+        <div class="boxall" style="height:545px;">
+
+          <div class="navboxall" >
+			<div class="sycm">
+          <ul class="clearfix">
+            
+              <ul style=" text-align:center;margin-top:  20px;">
+                <div class="alltitle">南宁市诈骗信息云图</div>
+                <img src="../../img/开封.png" width="90%" height="350px" style="text-align: center;margin-left: 5%;margin-top: 30px;" alt="图片正在加载" title="南京市诈骗信息云图" >
+              </ul>
+          </ul>
+
+        </div>
+
+			  <ul class="jindu clearfix">
+				 
+			 
+			  </ul>
+			</div>
+        </div>
+      </li>
+      <li>
+        <div class="boxall" style="height:545px">
+          <div class="alltitle">诈骗类型分布</div>
+          <div class="navboxall" id="echart4"></div>
+        </div>
+      </li>
+      <li>
+        <div class="boxall" style="height:260px">
+          <div class="alltitle">罪犯处刑分布</div>
+          <div class="navboxall" id="echart1"> </div>
+        </div>
+        <div class="boxall" style="height:270px">
+          <div class="alltitle">年龄分布</div>
+          <div class="navboxall"  id="echart2"> </div>
+        </div>
+      </li>
+    </ul>
+    <ul class="clearfix">
+      <li>
+        <div class="boxall" style="height:390px;">
+          <div class="alltitle">南宁反诈新闻</div>
+          <div class="navboxall" >
+           <!-- <div class="wraptit"> <span>订单号</span><span>订单金额</span><span>计划时间</span><span>当前状态</span> </div>-->
+            <div class="">
+            
+        <ul>
+                   
+          <li>
+              <a href="https://new.qq.com/rain/a/20220519A045QM00" target="_blank" style="color:aliceblue;margin-right: 2px;">广西日报：南宁公安“打防管控”遏制电诈多发态势</a>
+          </li>
+          <li>
+              <a href="https://www.nanning.gov.cn/ywzx/xqdt/2021xqdt/t4906333.html" target="_blank" style="color:aliceblue;margin-right: 2px;" >“精准滴灌”宣传 “快查快打”反诈
+                ——南宁市公安局兴宁分局开创反诈新局面</a>
+            
+          </li>
+          <li>
+              <a href="https://new.qq.com/rain/a/20220711A01YY000" target="_blank" style="color:aliceblue;margin-right: 2px;">开展反诈宣传 共筑安全防线——南宁警方积极推动反诈知识进企业进校园</a>
+          </li>
+          <li>
+              <a href="https://new.qq.com/rain/a/20220311A0BBN900" target="_blank" style="color:aliceblue;margin-right: 2px;">“刷单”“跑分”一个都跑不掉！南宁反诈中心郑重提醒
+              </a>
+          </li>
+          <li>
+              <a href="https://new.qq.com/rain/a/20220511A0DY7600" target="_blank" style="color:aliceblue;margin-right: 2px;">南宁警方迅速行动落实“全民反诈在行动”集中宣传月活动</a>
+          </li>
+          <li>
+              <a href="https://www.sohu.com/a/758127513_123753" target="_blank" style="color:aliceblue;margin-right: 2px;">（新春走基层）务工人员返岗 南宁铁路警察千里守护“防电诈” </a>
+          </li>
+          <li>
+              <a href="https://m.gmw.cn/toutiao/2023-05/10/content_1303368961.htm" target="_blank" style="color:aliceblue;margin-right: 2px;"> 南宁市民请注意!96110 这个电话号码一定要接听</a>
+          </li>
+          <li>
+              <a href="https://www.163.com/dy/article/IRA46TKJ05566WYS.html" target="_blank" style="color:aliceblue;margin-right: 2px;">智能反诈调研团赴南宁市公安局进行社会实践
+              </a>
+          </li>
+          <li>
+              <a href="https://new.qq.com/rain/a/20220518A03FRB00" target="_blank" style="color:aliceblue;margin-right: 2px;"> 南宁警方掀起“全民反诈在行动”集中宣传月活动热潮</a>
+          </li>
+          <li>
+              <a href="https://new.qq.com/rain/a/20231202A06ZU300" target="_blank" style="color:aliceblue;margin-right: 2px;"> 媒体聚焦丨广西首列“反诈”主题地铁专列亮相南宁</a>
+          </li>
+      </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li style="width:38%">
+        <div class="boxall" style="height:390px">
+          <div class="alltitle">电诈案数目分布</div>
+          <div class="navboxall" id="echart3"></div>
+        </div>
+      </li>
+      <li style="width:38%">
+        <div class="boxall" style="height:390px">
+          <div class="alltitle">冒充熟人与虚假购物变化趋势</div>
+          <div class="navboxall" id="echart5"></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<script>
+
+$(function(){
+	$('.wrap').liMarquee({
+		direction: 'up',//身上滚动
+		//runshort: false,//内容不足时不滚动
+		scrollamount: 20//速度
+	});
+});
+</script>
+
+</body>
+</html>

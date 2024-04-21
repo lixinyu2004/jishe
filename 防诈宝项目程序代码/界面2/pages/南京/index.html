@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>防诈宝信息可视化平台</title>
+    <link rel="icon" href="../../../../cover/html/img/Fevicon.png" type="image/png">
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+
+<body>
+  <header>
+    <h1>南京市反诈大数据统计平台</h1>
+    
+  </header>
+  <section class="mainbox">
+    <div class="column">
+      <div class="panel bar">
+        <h2>
+          各种诈骗类型数目
+        </h2>
+        <div class="chart"></div>
+        <div class="panel-footer"></div>
+      </div>
+      <div class="panel line">
+        <h2>主要诈骗类型受害人变化趋势</h2>
+        <div class="chart"></div>
+        <div class="panel-footer"></div>
+      </div>
+      <div class="panel pie">
+        <h2>受害人年龄分布</h2>
+        <div class="chart"></div>
+        <div class="panel-footer"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="no">
+        <div class="no-hd">
+          <ul>
+            <li>32000</li>
+            <li>3600万</li>
+          </ul>
+        </div>
+        <div class="no-bd">
+          <ul>
+            <li>阻止受聘总人数</li>
+            <li>阻止受骗总金额</li>
+          </ul>
+        </div>
+      </div>
+      <div class="map">
+        <div class="chart"></div>
+        <div class="map1"></div>
+        <div class="map2"></div>
+        <div class="map3"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="panel bar1">
+        <h2>各种诈骗类型罪犯抓捕率</h2>
+       
+      <div class="chart"></div>
+        <div class="panel-footer"></div>
+      </div>
+      <div class="panel line1">
+        <h2>主要诈骗类型损失金额变化趋势</h2>
+        <div class="chart"></div>
+        <div class="panel-footer"></div>
+      </div>
+      <div class="panel pie1">
+        <h2>女性受骗占比</h2>
+        <div class="chart"></div>
+        <div class="panel-footer"></div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/flexible.js"></script>
+ <script src="https://www.jq22.com/jquery/echarts-4.2.1.min.js"></script>
+  <script src="js/index.js"></script>
+  <script src="js/china.js"></script>
+  <script src="js/myMap.js"></script>
+
+  <script>
+    (function (fn) {
+      fn();
+      setInterval(fn, 1000);
+    })(function () {
+     var dt = new Date();
+      document.querySelector(".showTime span").innerHTML =
+        dt.getDate() + "日-" +
+        dt.getHours() + "时" +
+        dt.getMinutes() + "分" +
+        dt.getSeconds() + "秒";
+    });
+  </script>
+</body>
+
+</html>

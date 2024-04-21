@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>网络游戏诈骗之蛋仔派对</title>
+     <link rel="icon" href="../../../../cover/html/img/Fevicon.png" type="image/png">
+    <style>
+        html,body{height: 100%; padding: 0; margin: 0; background-color: rgb(36, 36, 36);}
+        #mainDiv{height: 100%;text-align: center;}
+    </style>
+</head>
+<body>
+    <div id="mainDiv">
+        <canvas id="myCanvas" width="640" height="480">Your browser does not support the canvas element.</canvas>
+    </div>
+    <script type="text/javascript" src="javascript/texts.js"></script>
+    <script type="text/javascript">
+    
+    //画板对象
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+
+    //图片
+    var img_textbox = new Image();
+    img_textbox.src = "image/textbox.png";
+    var bgid = 0;
+
+    var num = 0;// 序号
+    var currentParagraph = "";
+    var currentText = new Array();
+    var printing = 0;
+    var printX = 0;
+    var printY = 0;
+    
+    //载入背景
+    var backgroundArray = new Array;
+    for (mi = 0; mi < bgArray.length; mi++) {
+        backgroundArray[mi] = new Image();
+        backgroundArray[mi].src = bgArray[mi];
+    }
+
+    //载入图片
+    var pictureArray = new Array;
+    for (mi = 0; mi < imageArray.length; mi++) {
+        pictureArray[mi] = new Image();
+        pictureArray[mi].src = imageArray[mi];
+    }
+
+    //载入声音
+    var audioArray = new Array;
+    for (mi = 0; mi < soundArray.length; mi++) {
+        audioArray[mi] = new Audio();
+        audioArray[mi].src = soundArray[mi];
+    }
+
+    window.onload = function() {
+        ctx.drawImage(backgroundArray[bgid],0,0);
+        //ctx.drawImage(img_textbox,0,0);
+        ctx.font = "18px bold 微软雅黑";
+        // 设置颜色
+        ctx.fillStyle = "white";
+        // 设置水平对齐方式
+        ctx.textAlign = "center";
+        // 绘制文字（参数：要写的字，x坐标，y坐标）
+        ctx.fillText("", c.width / 2, c.height / 2);
+        ctx.textAlign = "left";
+        //适应大小
+        boxresize();
+        //添加鼠标事件
+        c.onclick = touchBox;
+    }
+    function touchBox() {
+        //打印完
+        if (printing == currentText.length) {
+            //数组没越界
+            if (num < maintext.length) {
+                //覆盖画板(bg)
+                ctx.drawImage(backgroundArray[bgid++], 0, 0);
+                //语句处理(处理事件)
+                currentParagraph = maintext[num];
+                textEvent();
+                //覆盖画板(box)
+                ctx.drawImage(img_textbox, 0, 0);
+                //分离字符
+                currentText = currentParagraph.split("");
+                //复位
+                printing = 0;
+                printX = 40;
+                printY = 340;
+                //启动计时器
+                myTimer = setInterval("addText()", 20);
+                num++;
+            }
+        }
+        
+    }
+
+    function addText() {
+        if (printing < currentText.length) {
+        //获取关键字
+        var keyword = currentText[printing];
+        if (keyword == "+") {
+            printX = 40;
+            printY += 40;
+        } else {
+            //写
+            ctx.fillText(keyword, printX, printY);
+            //X位移
+            printX += ctx.measureText(keyword).width + 1;
+            //Y位移
+            if (printX > 580) {
+                printX = 40;
+                printY += 40;
+            }
+        }
+        
+        //下一个字处理
+        printing++;
+        if (printing == currentText.length)
+            clearInterval(myTimer);
+        }
+    }
+
+    //事件处理
+    function textEvent() {
+        
+        var keywordList = new Array();
+        for (var mj = 0; mj < currentParagraph.length; mj++) {
+            var currentCha = currentParagraph.charAt(mj);
+            if (currentCha == "#" || currentCha == "$" || currentCha == "%" || currentCha == "@" || currentCha == "&") {
+                var mk = currentParagraph.indexOf(")", mj);
+                //有右括号
+                if (mk != -1) {
+
+                    keywordList.push(currentParagraph.substring(mj, mk + 1));
+                       
+                }
+            }
+        }
+
+        for (var mn = 0; mn < keywordList.length; mn++) {
+            var parameterArray = keywordList[mn].substring(2,keywordList[mn].length - 1).split(",");
+            var parameterIsNumber = 0;
+            var newText = "";
+           
+            for (var ml = 0; ml < parameterArray.length; ml++) {
+                parameterArray[ml] = Number(parameterArray[ml]);
+                if (!isNaN(parameterArray[ml]))
+                    parameterIsNumber++;
+            }
+
+
+            switch (keywordList[mn].charAt(0)) {
+                case "&":
+                    if (parameterIsNumber == 1) {
+                        if (bgid != parameterArray[0]) {
+                        bgid = parameterArray[0];
+                        ctx.drawImage(backgroundArray[bgid++], 0, 0);
+                        }
+                    }
+                    break;
+                case "#":
+                    if (parameterIsNumber == 4) {
+                        ctx.globalAlpha = parameterArray[3];
+                        ctx.drawImage(pictureArray[parameterArray[0]], parameterArray[1], parameterArray[2]);
+                        ctx.globalAlpha = 1;
+                        
+                    }
+                    break;
+                case "$":
+                    if (parameterIsNumber == 2) {
+                        audioArray[parameterArray[0]].play();
+                        audioArray[parameterArray[0]].loop = parameterArray[1] > 0;
+                    }
+                    break;
+                case "%":
+                    if (parameterIsNumber == 1) {
+                        if (parameterArray[0] < 0) {
+                            //停止所有
+                            for (var io = 0; io < audioArray.length; io++) {
+                                if (!audioArray[io].paused) {
+                                    audioArray[io].pause();
+                                    audioArray[io].currentTime = 0;
+                                }
+                            }
+                        } else {
+                            if (!audioArray[parameterArray[0]].paused) {
+                                audioArray[parameterArray[0]].pause();
+                                audioArray[parameterArray[0]].currentTime = 0;
+                            }
+                        }
+                    }
+                    break;
+                case "@":
+                    if (parameterIsNumber == 1) {
+                        newText = nameArray[parameterArray[0]];
+                    }
+                    break;
+            }
+            //消除指令
+            currentParagraph = currentParagraph.replace(keywordList[mn],newText);
+        }
+    }
+        
+    window.onresize = function() {
+        boxresize();
+    }
+    function boxresize () {
+        var dW = document.body.clientWidth;
+        var dH = document.body.clientHeight;
+        if (dH/dW < 0.75) {
+            c.style.cssText = "width:auto;height:100%;position: absolute; left: 50%; top: 50%;transform: translate(-50%, -50%)";
+        } else {
+            
+            c.style.cssText = "width:100%;height:auto;position: absolute; left: 50%; top: 50%;transform: translate(-50%, -50%)";
+        }
+        
+    }
+    </script>
+</body>
+</html>

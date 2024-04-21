@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<title>防诈宝信息可视化平台</title>
+<link rel="icon" href="../../../../cover/html/img/Fevicon.png" type="image/png">
+
+	<link rel="stylesheet" href="icon/iconfont.css">
+	<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+	<script src="https://www.jq22.com/jquery/echarts-4.2.1.min.js"></script>
+
+	
+
+</head>
+<body>
+<div class="container-header">
+   
+   
+    <h3>长春市反诈大数据统计平台</h3>
+</div>
+<div class="container-content">
+    <div class="top">
+		<div class="count-base" >
+			<div class="com-count-title">年龄分布</div>
+			<div class="com-screen-content">
+				
+				<div id="main1" style="width:100%;height:300px;"></div>
+			</div>
+			<span class="left-top"></span>
+			<span class="right-top"></span>
+			<span class="left-bottom"></span>
+			<span class="right-bottom"></span>
+		</div>
+		<div class="count-resource q1">
+			<div class="com-count-title">诈骗案例变化趋势</div>
+			<div class="com-screen-content2">
+				
+				<div class="com-screen-content">
+				 <div id="main2" style="margin-top:10px;width:100%;height:240px;"></div>
+				</div>
+				<span class="left-top"></span>
+				<span class="right-top"></span>
+				<span class="left-bottom"></span>
+				<span class="right-bottom"></span>
+			</div>
+		</div>
+		<div class="count-resource q2">
+			<div class="com-count-title">损失金额变化趋势</div>
+			
+				
+			<div class="com-screen-content">
+				
+				
+			 <div id="main3" style="margin-top:10px;width:100%;height:240px;"></div>
+			</div>
+			<span class="left-top"></span>
+			<span class="right-top"></span>
+			<span class="left-bottom"></span>
+			<span class="right-bottom"></span>
+		</div>
+    </div>
+	
+	<div class="mid">
+		<div class="count-share w1" >
+			<div class="com-count-title">长春反诈新闻</div>
+			<div class="com-screen-content">
+				    <div class="topRec_List">
+						
+						<div class="maquee">
+							<ul>
+                   
+								<li>
+									<a href="http://gat.jl.gov.cn/jwzx/mtgz/202306/t20230621_8727257.html" target="_blank" style="color: aliceblue; font-size: 15px;">【人民公安报】吉林市多重反诈预警 守住群众“钱袋子”</a>
+								</li>
+								<li>
+									<a href="https://www.thepaper.cn/newsDetail_forward_19764235" target="_blank" style="color: aliceblue; font-size: 15px">【夏季治安整治】吉林市公安局召开反诈工作新闻发布会
+										
+										</a>
+								</li>
+								<li>
+									<a href="https://www.jl.gov.cn/ggzy/ccsggzy/ccsjyxx/ccszfcg/ccszccggg/202310/t20231012_8812318.html" target="_blank" style="color: aliceblue; font-size: 15px">长春市公安局九台区分局反诈中心修缮工程设备采购项目询价公告</a>
+								</li>
+								<li>
+									<a href="https://news.sina.com.cn/minsheng/2021-11-08/doc-iktzscyy4258118.shtml" target="_blank" style="color: aliceblue; font-size: 15px"> 吉林梅河口：“扫楼”反诈宣传进万家</a>
+								</li>
+								<li>
+									<a href="https://www.sohu.com/a/430721339_99994956" target="_blank" style="color: aliceblue; font-size: 15px">守护群众“钱袋子”，吉林公安反诈宣传不停歇！</a>
+								</li>
+								<li>
+									<a href="https://www.jl.chinanews.com.cn/jrcy/2023-09-26/232758.html" target="_blank" style="color: aliceblue; font-size: 15px">中信银行长春南三环支行举办反诈知识“汇聚金融力量 共创美好生活”宣传活动  </a>
+								</li>
+								<li>
+									<a href="https://i.ifeng.com/c/8THXpc1BRvE" target="_blank" style="color: aliceblue; font-size: 15px">长春经开提升“三力”打出反诈“组合拳”</a>
+								</li>
+								<li>
+									<a href="https://k.sina.com.cn/article_2415608027_8ffb40db001012iaj.html" target="_blank" style="color: aliceblue; font-size: 15px">结对反诈 优势互补 合力打造“无诈社区”
+									</a>
+								</li>
+								<li>
+									<a href="https://www.thepaper.cn/newsDetail_forward_4895389" target="_blank" style="color: aliceblue; font-size: 15px">吉林市反诈中心连续打掉六个GOIP窝点，有效打压境外诈骗团伙嚣张气焰！</a>
+								</li>
+								<li>
+									<a href="https://k.sina.com.cn/article_2415608027_8ffb40db020010r1a.html" target="_blank" style="color: aliceblue; font-size: 15px"> 民警化身“主播”带来不一样的反诈宣传
+										
+										</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+			</div>
+			<span class="left-top"></span>
+			<span class="right-top"></span>
+			<span class="left-bottom"></span>
+			<span class="right-bottom"></span>
+		</div>
+		<div class="count-share w2" >
+			<div class="com-count-title">诈骗类型分布</div>
+			<div class="com-screen-content">
+			 <div id="main5" style="width:100%;height:300px;"></div>
+			</div>
+			<span class="left-top"></span>
+			<span class="right-top"></span>
+			<span class="left-bottom"></span>
+			<span class="right-bottom"></span>
+		</div>
+	</div>
+	
+	<div class="bottom">
+		<div class="count-topic e1" >
+			<div class="com-count-title">性别分布</div>
+			<div class="com-screen-content">
+			<div id="main6" style="width:100%;height:300px;"></div>
+			</div>
+			<span class="left-top"></span>
+			<span class="right-top"></span>
+			<span class="left-bottom"></span>
+			<span class="right-bottom"></span>
+		</div>
+		<div class="count-topic e2" >
+			<div class="com-count-title">长春市诈骗信息云图</div>
+			<div class="com-screen-content">
+				<img src="../../img/吉林.png" width="280px" height="250px" style="text-align: center;margin-left: 200px;margin-top: 10px;" alt="图片正在加载" title="长春市诈骗信息云图" >
+			 <div id="main7" style="width:0%;height:300px;"></div>
+			</div>
+			<span class="left-top"></span>
+			<span class="right-top"></span>
+			<span class="left-bottom"></span>
+			<span class="right-bottom"></span>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</div>
+
+<script type="text/javascript"> 
+//根据不同的分辨率调用不同的css和js
+        document.write("<link href='css/test-1280.css' rel='stylesheet' type='text/css'>");
+
+		document.writeln("<script type=\"text/javascript\" src=\"js/test-1280.js\"><\/script>");
+
+</script>
+
+<script type="text/javascript"> 
+	  function autoScroll(obj){  
+			$(obj).find("ul").animate({  
+				marginTop : "-39px"  
+			},500,function(){  
+				$(this).css({marginTop : "0px"}).find("li:first").appendTo(this);  
+			})  
+		}  
+		$(function(){  
+			setInterval('autoScroll(".maquee")',2000);
+		}) 
+</script> 
+</body>
+</html>

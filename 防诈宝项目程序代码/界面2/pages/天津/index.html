@@ -1,0 +1,515 @@
+<!doctype html>
+<html>
+<head>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>防诈宝信息可视化平台</title>
+    <link rel="icon" href="../../../../cover/html/img/Fevicon.png" type="image/png">
+<link type="text/css" href="css/public.css" rel="stylesheet">
+<link type="text/css" href="css/index.css" rel="stylesheet">
+<script type="text/javascript">
+        document.documentElement.style.fontSize = document.documentElement.clientWidth /768*100 + 'px';
+</script>
+
+<script src="https://www.jq22.com/jquery/echarts-4.2.1.min.js"></script>
+</head>
+<style>
+.abc{ 
+
+}
+
+</style>
+
+<body>
+<div class="bg">
+	<div class="title">天津反诈大数据统计平台</div>
+    <div class="leftMain">
+    	
+        <div class="leftMain_middle">
+        	<div class="leftMain_middle_left">
+            	<div class="leftMain_middle_leftIn">
+                	<h3>多发诈骗类型分布</h3>
+                    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+                    <div class="biaoge" style="width:100%; height:25vh" id="chartmain"></div>
+                    <script type="text/javascript">
+					//window.onload = function () {
+								//指定图表的配置项和数据
+								var dataAxis = ['1日', '2日', '3日', '4日', '5日', '6日', '7日', '8日', '9日', '10日', '11日', '12日', '13日', '14日', '15日'];
+								var data = [220, 182, 191, 234, 290, 330, 310, 123, 442, 321, 90, 149, 210, 122, 200];
+								var yMax = 500;
+								var dataShadow = [];
+								
+								for (var i = 0; i < data.length; i++) {
+									dataShadow.push(yMax);
+								}
+								option = {
+        //  backgroundColor: '#00265f',
+          tooltip: {
+              trigger: 'axis',
+              axisPointer: {
+                  type: 'shadow'
+              }
+          },
+          grid: {
+              left: '0%',
+              top:'10px',
+              right: '0%',
+              bottom: '4%',
+             containLabel: true
+          },
+          xAxis: [{
+              type: 'category',
+                    data: ['虚假购物类', '游戏虚假交易', '刷单返利类', '冒充客服类', '虚假贷款类'],
+                    
+                    axisLabel: {
+                        // x轴文本换行
+                        formatter: function (params) {
+                          var newParamsName = '' // 最终拼接成的字符串
+                          var paramsNameNumber = params.length // 实际标签的个数
+                          var provideNumber = 4 // 每行能显示的字的个数
+                          var rowNumber = Math.ceil(paramsNameNumber / provideNumber) // 换行的话，需要显示几行，向上取整
+                          // 条件等同于rowNumber>1
+                          if (paramsNameNumber > provideNumber) {
+                            // 循环每一行,p表示行
+                            for (var p = 0; p < rowNumber; p++) {
+                              var tempStr = "" // 表示每一次截取的字符串
+                              var start = p * provideNumber // 开始截取的位置
+                              var end = start + provideNumber // 结束截取的位置
+                              // 此处特殊处理最后一行的索引值
+                              if (p == rowNumber - 1) tempStr = params.substring(start, paramsNameNumber)
+                              else tempStr = params.substring(start, end) + "\n" // 每一次拼接字符串并换行
+                              newParamsName += tempStr // 最终拼成的字符串
+                            }
+                          } else {
+                            newParamsName = params // 将旧标签的值赋给新标签
+                          }
+                          return newParamsName
+                        }
+                      },
+              axisLine: {
+                  show: true,
+               lineStyle: {
+                      color: "rgba(255,255,255,.1)",
+                      width: 1,
+                      type: "solid"
+                  },
+              },
+              
+              axisTick: {
+                  show: false,
+              },
+              axisLabel:  {
+                      interval: 0,
+                     // rotate:50,
+                      show: true,
+                      splitNumber: 15,
+                      textStyle: {
+                           color: "rgba(255,255,255,.6)",
+                          fontSize: '12',
+                      },
+                  },
+          }],
+          yAxis: [{
+              type: 'value',
+              axisLabel: {
+                 //formatter: '{value} %'
+                  show:true,
+                   textStyle: {
+                           color: "rgba(255,255,255,.6)",
+                          fontSize: '12',
+                      },
+              },
+              axisTick: {
+                  show: false,
+              },
+              axisLine: {
+                  show: true,
+                  lineStyle: {
+                      color: "rgba(255,255,255,.1	)",
+                      width: 1,
+                      type: "solid"
+                  },
+              },
+              splitLine: {
+                  lineStyle: {
+                     color: "rgba(255,255,255,.1)",
+                  }
+              }
+          }],
+          series: [
+              {
+              type: 'bar',
+              data: [27.19,14.91,13.15,8.77,6.57],
+              barWidth:'35%', //柱子宽度
+             // barGap: 1, //柱子之间间距
+              itemStyle: {
+                  normal: {
+                      color:'RGB(255,255,153)',
+                      opacity: 1,
+                      barBorderRadius: 5,
+                  }
+              },
+              label: {
+                  show: true,
+                  position: 'top',
+                  formatter: '{c}%' // 在这里设置百分数格式
+              }
+          }
+              
+          ]
+      };
+     
+								
+								
+								//获取dom容器
+								var myChart = echarts.init(document.getElementById('chartmain'));
+								// 使用刚指定的配置项和数据显示图表。
+								myChart.setOption(option);
+						//};
+					</script>
+                    <span class="border_bg_leftTop"></span>
+                    <span class="border_bg_rightTop"></span>
+                    <span class="border_bg_leftBottom"></span>
+                    <span class="border_bg_rightBottom"></span>
+                </div>
+            </div>
+        	<div class="leftMain_middle_right">
+            	<div class="leftMain_middle_rightIn">
+                	<h3>受害人群分布</h3>
+                    <div class="biaoge biaoge_pai" style="width:100%; height:25vh">
+                    	<div class="biaoge_paiIn">
+                        	<ul>
+                            	<li>
+                                	<div class="liIn">
+                                    	<div class="liIn_left"><span class="bot"></span><span class="zi">工厂工人</span></div>
+                                        <div class="liIn_line"><div class="line_lineIn" style="width:98.5%;"></div></div>
+                                        <p class="num">72%</p>
+                                    </div>
+                                </li>
+                             	<li>
+                                	<div class="liIn liIn2">
+                                    	<div class="liIn_left"><span class="bot"></span><span class="zi">无业</span></div>
+                                        <div class="liIn_line"><div class="line_lineIn" style="width:88.5%;"></div></div>
+                                        <p class="num">16%</p>
+                                    </div>
+                                </li>
+                            	<li>
+                                	<div class="liIn liIn3">
+                                    	<div class="liIn_left"><span class="bot"></span><span class="zi">其他群体</span></div>
+                                        <div class="liIn_line"><div class="line_lineIn" style="width:68.5%;"></div></div>
+                                        <p class="num">8%</p>
+                                    </div>
+                                </li>
+                            	<li>
+                                	<div class="liIn liIn4">
+                                    	<div class="liIn_left"><span class="bot"></span><span class="zi">公司职员</span></div>
+                                        <div class="liIn_line"><div class="line_lineIn" style="width:40.5%;"></div></div>
+                                        <p class="num">3%</p>
+                                    </div>
+                                </li>
+                            	<li>
+                                	<div class="liIn liIn5">
+                                    	<div class="liIn_left"><span class="bot"></span><span class="zi">服务行业</span></div>
+                                        <div class="liIn_line"><div class="line_lineIn" style="width:22.5%;"></div></div>
+                                        <p class="num">1%</p>
+                                    </div>
+                                </li>
+                            	
+                           </ul>
+                        </div>
+                    </div>
+                    <span class="border_bg_leftTop"></span>
+                    <span class="border_bg_rightTop"></span>
+                    <span class="border_bg_leftBottom"></span>
+                    <span class="border_bg_rightBottom"></span>
+                </div>
+            </div>
+        </div>
+        <div class="leftMain_middle">
+        	<div class="leftMain_middle_left">
+            	<div class="leftMain_middle_leftIn">
+                	<h3>诈骗数目逐月变化趋势</h3>
+                    <div class="biaoge" style="width:100%; height:25vh" id="chartmain_zhe"></div>
+                    <script type="text/javascript">
+					//window.onload = function (){
+								//指定图表的配置项和数据
+								
+					option = {
+						title: {
+							text: ''
+						},
+						tooltip: {
+							trigger: 'axis'
+						},
+						legend: {
+							textStyle: {
+								color: '#fff',
+								fontSize: 12,
+							},
+							right:'10%',
+							data: ['虚假购物类', '电信诈骗']
+						},
+						grid:{
+								x:40,
+								y:40,
+								x2:20,
+								y2:20,
+							},
+						toolbox: {
+							feature: {
+								//saveAsImage: {}
+							}
+						},
+						xAxis: {
+							type: 'category',
+							boundaryGap: false,
+							axisLabel: {
+											/*inside: true,*/
+											interval:0,
+											textStyle: {
+												color: '#fff',
+												fontSize: 12
+												
+											}
+										},
+										axisTick: {
+											show: false,
+										},
+										axisLine: {
+											show: true,
+											symbol:['none', 'arrow'],
+											symbolOffset: 12,
+											lineStyle:{
+												color: '#fff',
+											}
+										},
+							data: ['6', '7', '8', '9', '10', '11', '12']
+						},
+						yAxis: {
+							type: 'value',
+							
+							axisLine: {
+								show: true,
+								symbol: ['none', 'arrow'],
+								symbolOffset: 12,
+								lineStyle:{
+									color: '#fff',
+								}
+							},
+							axisTick: {
+								show: false
+							},
+							axisLabel: {
+								textStyle: {
+									color: '#fff',
+									fontSize: 12
+								}
+							}
+						},
+						series: [
+							{
+								name: '折线一',
+								type: 'line',
+								/*stack: '总量',*/
+								data: [280, 102, 191, 134, 390, 230, 210],
+								itemStyle: {
+									 normal: {
+									   color: "#0efdff",//折线点的颜色
+									   lineStyle: {
+									   color: "#0efdff",//折线的颜色
+									   width:2,
+									  }
+									},
+								}
+							},
+							{
+								name: '折线二',
+								type: 'line',
+								/*stack: '总量',*/
+								data: [100, 132, 131, 234, 290, 330, 110]
+							},
+						]
+					};		
+								//获取dom容器
+								var myChart = echarts.init(document.getElementById('chartmain_zhe'));
+								// 使用刚指定的配置项和数据显示图表。
+								myChart.setOption(option);
+						//};
+					</script>
+                    <span class="border_bg_leftTop"></span>
+                    <span class="border_bg_rightTop"></span>
+                    <span class="border_bg_leftBottom"></span>
+                    <span class="border_bg_rightBottom"></span>
+                </div>
+            </div>
+        	<div class="leftMain_middle_right">
+            	<div class="leftMain_middle_rightIn">
+                	<h3>天津诈骗云图</h3>
+                    <div class="biaoge biaoge_bi" style="width:100%; height:38vh">
+                        <img src="../../img/天津.png" width="60%" height="100%" style="text-align: center;margin-left: 20%;" alt="图片正在加载" title="天津市诈骗信息云图" >
+                    
+                    </div>
+                    <span class="border_bg_leftTop"></span>
+                    <span class="border_bg_rightTop"></span>
+                    <span class="border_bg_leftBottom"></span>
+                    <span class="border_bg_rightBottom"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="rightMain">
+        <div class="rightMain_top">
+            <div class="rightMain_topIn">
+                <h3>受害人年龄分布</h3>
+                <div class="biaoge" style="width:100%; height:30vh" id="chartmain_bing"></div>
+                <script type="text/javascript">
+					
+					 option = {
+                
+                
+						tooltip: {
+                  trigger: 'item'
+                },
+                visualMap: {
+                  show: false,
+                  min: 0,
+                  max: 100,
+                  inRange: {
+                    colorLightness: [0, 1]
+                  }
+                },
+                series: [
+                  {
+                    name: '受骗年龄占比',
+                    type: 'pie',
+                    radius: '70%',
+                    center: ['50%', '50%'],
+                    data: [
+                      { value: 65.5, name: '18-35' },
+                      { value: 31.1, name: '36-59' },
+                      { value: 1.4, name: '>60' },
+                     
+                    ].sort(function (a, b) {
+                      return a.value - b.value;
+                    }),
+                    roseType: 'radius',
+                    label: {
+                      color: 'rgba(255, 255, 255, 0.3)'
+                    },
+                    labelLine: {
+                      lineStyle: {
+                        color: 'rgba(255, 255, 255, 0.3)'
+                      },
+                      smooth: 0.2,
+                      length: 10,
+                      length2: 20
+                    },
+                    itemStyle: {
+                      color: 'YELLOW',
+                      shadowBlur: 200,
+                      shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    },
+                    label: {
+                      show: true,
+                      position: 'top',
+                      formatter: '{c}%' // 在这里设置百分数格式
+                  },
+                    animationType: 'scale',
+                    animationEasing: 'elasticOut',
+                    animationDelay: function (idx) {
+                      return Math.random() * 200;
+                    }
+                  }
+                ]
+              };
+            
+                //获取dom容器
+								var myChart = echarts.init(document.getElementById('chartmain_bing'));
+								// 使用刚指定的配置项和数据显示图表。
+								myChart.setOption(option);
+                
+                </script>
+                <span class="border_bg_leftTop"></span>
+                <span class="border_bg_rightTop"></span>
+                <span class="border_bg_leftBottom"></span>
+                <span class="border_bg_rightBottom"></span>
+            </div>
+         </div>
+        <div class="rightMain_bottom">
+            <div class="rightMain_bottomIn">
+                <h3>天津诈骗新闻</h3>
+                <div class="biaoge biaoge_list" style="width:100%; height:36vh">
+                	<div class="biaoge_listIn">
+                        <div class="ul_list">
+                        	<div class="ul_listIn" style="color: aliceblue;">
+                               
+								
+                   
+									<ul class="ul_con" style="color: aliceblue;">
+										<a href="https://www.360kuai.com/pc/917dda030aab72222?cota=3&kuai_so=1&sign=360_e39369d1&refer_scene=so_54" target="_blank" style="color: aliceblue;">平安普惠天津分公司积极开展防范电信诈骗金融知识宣传活动</a>
+									</ul>
+									<ul class="ul_con">
+										<a href="https://www.360kuai.com/pc/93e1e7ffa7cb26d25?cota=3&kuai_so=1&refer_scene=so_3&sign=360_da20e874" target="_blank" style="color: aliceblue;">天津移动联合渤海银行研发基于区块链技术的跨行业反电信诈骗系统</a>
+									</ul>
+									<ul class="ul_con">
+										<a href="https://www.360kuai.com/pc/98041124afefba076?cota=3&kuai_so=1&refer_scene=so_3&sign=360_da20e874" target="_blank" style="color: aliceblue;">天津电信网络诈骗案件立案数量、损失金额实现双下降</a>
+									</ul>
+									<ul class="ul_con">
+										<a href="https://www.360kuai.com/pc/9b8c4055c8f9cf2f5?cota=3&kuai_so=1&refer_scene=so_3&sign=360_da20e874" target="_blank" style="color: aliceblue;">背着“伪基站”哪里跑！天津公安打掉一为境外电信诈骗提供帮助犯罪团伙</a>
+									</ul>
+									<ul class="ul_con">
+										<a href="https://www.360kuai.com/pc/992ff4995d1c89878?cota=3&kuai_so=1&refer_scene=so_3&sign=360_da20e874" target="_blank" style="color: aliceblue;">平安普惠天津分公司积极开展防范电信诈骗金融知识宣传活动</a>
+									</ul>
+									<ul class="ul_con">
+										<a href="https://finance.sina.com.cn/trust/2024-02-04/doc-inafwpty4145870.shtml" target="_blank" style="color: aliceblue;">防范电信诈骗 | 关于假借“中国人民银行天津市分行”等公众号进行欺诈的风险提示</a>
+									</ul>
+									<ul class="ul_con">
+										<a href="https://www.163.com/dy/article/IOE4UDVP0550TYQ0.html" target="_blank" style="color: aliceblue;">天津津南区检察院发布案例：诈骗套路多 节前需警惕</a>
+									</ul>
+									<ul class="ul_con">
+										<a href="https://www.360kuai.com/pc/9035fa2bb58612417?cota=3&kuai_so=1&refer_scene=so_3&sign=360_da20e874" target="_blank" style="color: aliceblue;">天津慧闻伟业原始股：预防诈骗必看！如何识别电信诈骗套路</a>
+									</ul>
+									<ul class="ul_con">
+										<a href="https://new.qq.com/rain/a/20231220A03U9A00.html" target="_blank" style="color: aliceblue;">谎称能办“中国管理科学院”证书，天津打掉一兼职挂证诈骗团伙</a>
+									</ul>
+									<ul class="ul_con">
+										<a href="https://new.qq.com/rain/a/20231124A03J7Y00.html" target="_blank" style="color: aliceblue;"> 扩散 | 天津发布风险提示！警惕这种诈骗行为！</a>
+									</ul>
+							
+                            </div>
+                       </div>
+                   </div>
+                
+                </div>
+                <span class="border_bg_leftTop"></span>
+                <span class="border_bg_rightTop"></span>
+                <span class="border_bg_leftBottom"></span>
+                <span class="border_bg_rightBottom"></span>
+            </div>
+         </div>
+    </div>
+    <div style="clear:both;"></div>
+</div>
+<!--数字增长累加动画-->
+<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script src="js/jquery.numscroll.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(".shu1").numScroll();
+	$(".shu2").numScroll();
+	$(".shu3").numScroll();
+	$(".shu4").numScroll();
+	$(".shu5").numScroll();
+	$(".shu6").numScroll();
+
+	/*$(".num2").numScroll({
+		time:5000
+	});*/
+</script>
+
+</body>
+</html>

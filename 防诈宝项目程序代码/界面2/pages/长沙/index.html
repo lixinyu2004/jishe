@@ -1,0 +1,165 @@
+﻿<!--
+访问地址：https://paycloud.vip
+
+ -->
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>防诈宝信息可视化平台</title>
+<link rel="icon" href="../../../../cover/html/img/Fevicon.png" type="image/png">
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/echarts.min.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="js/jquery.limarquee.js"></script>
+<script type="text/javascript" src="js/jquery.cxselect.min.js"></script>
+<link rel="stylesheet" href="css/comon0.css">
+</head>
+<body>
+<div style="background:#000d4a url(images/bg.jpg) center top;">
+  <div class="loading">
+    <div class="loadbox"> <img src="picture/loading.gif"> 页面加载中... </div>
+  </div>
+  <div class="back"></div>
+  <div class="head">
+    <h1>长沙市反诈大数据管理平台</h1>
+    
+	    </div>
+    <script>
+var t = null;
+    t = setTimeout(time,1000);//開始运行
+    function time()
+    {
+       clearTimeout(t);//清除定时器
+       dt = new Date();
+		var y=dt.getFullYear();
+		var mt=dt.getMonth()+1;
+		var day=dt.getDate();
+       var h=dt.getHours();//获取时
+       var m=dt.getMinutes();//获取分
+       var s=dt.getSeconds();//获取秒
+       document.getElementById("showTime").innerHTML = y+"年"+mt+"月"+day+"日"+h+"时"+m+"分"+s+"秒";
+       t = setTimeout(time,1000); //设定定时器，循环运行
+    }
+</script>
+  <div class="mainbox">
+    <ul class="clearfix">
+      <li>
+        <div class="boxall" style="height:545px;">
+
+          <div class="navboxall" >
+			<div class="sycm">
+          <ul class="clearfix">
+            
+              <ul style=" text-align:center;margin-top:  20px;">
+                <div class="alltitle">长沙市诈骗信息云图</div>
+                <img src="../../img/开封.png" width="90%" height="350px" style="text-align: center;margin-left: 5%;margin-top: 30px;" alt="图片正在加载" title="南京市诈骗信息云图" >
+              </ul>
+          </ul>
+
+        </div>
+
+			  <ul class="jindu clearfix">
+				 
+			 
+			  </ul>
+			</div>
+        </div>
+      </li>
+      <li>
+        <div class="boxall" style="height:545px">
+          <div class="alltitle">诈骗类型分布</div>
+          <div class="navboxall" id="echart4"></div>
+        </div>
+      </li>
+      <li>
+        <div class="boxall" style="height:270px">
+          <div class="alltitle">年龄分布</div>
+          <div class="navboxall"  id="echart2"> </div>
+        </div>
+        <div class="boxall" style="height:260px">
+          <div class="alltitle">罪犯处刑分布</div>
+          <div class="navboxall" id="echart1"> </div>
+        </div>
+        
+      </li>
+    </ul>
+    <ul class="clearfix">
+      <li>
+        <div class="boxall" style="height:390px;">
+          <div class="alltitle">长沙反诈新闻</div>
+          <div class="navboxall" >
+           <!-- <div class="wraptit"> <span>订单号</span><span>订单金额</span><span>计划时间</span><span>当前状态</span> </div>-->
+            <div class="">
+            
+        <ul>
+                   
+          <li>
+              <a href="https://www.yuhuan.gov.cn/art/2023/1/4/art_1229306454_59065587.html" target="_blank" style="color:aliceblue;margin-right: 2px;">全民反诈 | 一周反诈地图来了，请查收！
+              </a>
+          </li>
+          <li>
+              <a href="https://www.thepaper.cn/newsDetail_forward_18073152" target="_blank" style="color:aliceblue;margin-right: 2px;" >反诈！反诈！反诈！长沙此项活动持续1个月</a>
+            
+          </li>
+          <li>
+              <a href="https://new.qq.com/rain/a/20231212A07YQ500.html" target="_blank" style="color:aliceblue;margin-right: 2px;">长沙陡岭社区：禁毒反诈齐参与 亲子携手筑防线</a>
+          </li>
+          <li>
+              <a href="https://new.qq.com/rain/a/20231208A0914200.html" target="_blank" style="color:aliceblue;margin-right: 2px;">“莫信、莫Cǐ、莫把钱！”长沙黄兴派出所方言宣传反诈，走新更走心
+              </a>
+          </li>
+          <li>
+              <a href="https://www.henan.gov.cn/2023/09-06/2810039.html" target="_blank" style="color:aliceblue;margin-right: 2px;">开封市构建立体化反诈宣传体系 守护居民“钱袋子”</a>
+          </li>
+          <li>
+              <a href="http://hn.people.com.cn/n2/2023/1129/c356378-40659329.html" target="_blank" style="color:aliceblue;margin-right: 2px;">“中信银行长沙东风路支行“养老反诈”宣传活动 </a>
+          </li>
+          <li>
+              <a href="https://new.qq.com/rain/a/20231127A0AGLJ00.html" target="_blank" style="color:aliceblue;margin-right: 2px;">长沙银桂苑社区：反诈禁毒齐宣传，平安社区共构建</a>
+          </li>
+          <li>
+              <a href="https://finance.sina.cn/2023-09-21/detail-imznmtck6388943.d.html" target="_blank" style="color:aliceblue;margin-right: 2px;">“支付为民 反诈同行”——中信银行长沙分行举办反诈观影活动
+              </a>
+          </li>
+          <li>
+              <a href="http://www.hn.xinhuanet.com/20230822/58b5e22b8b674a84a1899d9a2d6a0cfb/c.html" target="_blank" style="color:aliceblue;margin-right: 2px;">浦发银行长沙分行开展“大电影反诈宣传月”活动 </a>
+          </li>
+          <li>
+              <a href="https://www.cnr.cn/hunan/zhxw/20230814/t20230814_526378764.shtml" target="_blank" style="color:aliceblue;margin-right: 2px;"> 长沙县：400余名居民沉浸式打卡反诈主题影厅</a>
+          </li>
+      </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li style="width:38%">
+        <div class="boxall" style="height:390px">
+          <div class="alltitle">电诈案数目分布</div>
+          <div class="navboxall" id="echart3"></div>
+        </div>
+      </li>
+      <li style="width:38%">
+        <div class="boxall" style="height:390px">
+          <div class="alltitle">冒充熟人与虚假购物变化趋势</div>
+          <div class="navboxall" id="echart5"></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<script>
+
+$(function(){
+	$('.wrap').liMarquee({
+		direction: 'up',//身上滚动
+		//runshort: false,//内容不足时不滚动
+		scrollamount: 20//速度
+	});
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>防诈宝信息可视化平台</title>
+<link rel="icon" href="../../../../cover/html/img/Fevicon.png" type="image/png">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/echarts.min.js"></script> 
+<script type="text/javascript" src="js/js.js"></script> 
+<script type="text/javascript" src="js/jquery.limarquee.js"></script> 
+<script type="text/javascript" src="js/jquery.cxselect.min.js"></script> 
+	
+<link rel="stylesheet" href="css/comon0.css">
+</head>
+<body>
+<div style="background:#000d4a url(images/bg.jpg) center top;">
+	<div class="loading">
+  <div class="loadbox"> <img src="picture/loading.gif"> 页面加载中... </div>
+</div>
+	<div class="back"></div>
+<div class="head">
+	<!-- <div class="weather"><span id="showTime"></span></div>-->
+    
+  <h1>福州市反诈大数据统计平台</h1>
+</div>
+	<script>
+var t = null;
+    t = setTimeout(time,1000);//開始运行
+    function time()
+    {
+       clearTimeout(t);//清除定时器
+       dt = new Date();
+		var y=dt.getFullYear();
+		var mt=dt.getMonth()+1;
+		var day=dt.getDate();
+       var h=dt.getHours();//获取时
+       var m=dt.getMinutes();//获取分
+       var s=dt.getSeconds();//获取秒
+       document.getElementById("showTime").innerHTML = y+"年"+mt+"月"+day+"日"+h+"时"+m+"分"+s+"秒";
+       t = setTimeout(time,1000); //设定定时器，循环运行     
+    } 
+
+</script>
+<div class="mainbox">
+  <ul class="clearfix">
+    <li>
+      <div class="boxall" style="height:300px;">
+        <div class="alltitle">福州市反诈信息云图</div>
+         <!--<div class="navboxall" id="echart5"></div>-->
+         <img src="../../img/洛阳.png" width="280px" height="250px" style="text-align: center;margin-left: 20px;margin-top: 10px;" alt="图片正在加载" title="福州市诈骗信息云图" >
+      </div>
+      <div class="boxall" style="height:330px;">
+        <div class="alltitle">福州市反诈新闻</div>
+       <div class="navboxall" >
+		  
+		  <div class="">
+        <ul>
+                   
+          <li style="height: 20px;">
+              <a href="https://fz.fjsen.com/2024-02/08/content_31518437.htm" target="_blank" style="color: aliceblue;height: 20px;">南街街道开展“守住钱袋子，幸福过新年”反诈主题宣传活动
+                  </a>
+          </li>
+          <li>
+              <a href="https://fz.fjsen.com/2024-02/07/content_31517820.htm" target="_blank" style="color: aliceblue;height: 20px;" >年货必囤！福州中院这场反诈直播“干货”满满
+                  </a>
+          </li>
+          <li>
+              <a href="https://new.qq.com/rain/a/20231228A02JSQ00" target="_blank" style="color: aliceblue;height: 20px;">福州打击治理电诈成效全国领先</a>
+          </li>
+          <li>
+              <a href="https://new.qq.com/rain/a/20211107A09MCH00" target="_blank" style="color: aliceblue;height: 20px;"> 福州警方抓获35位跨境网络诈骗案的嫌犯 包括刚毕业大学生
+              </a>
+          </li>
+          <li>
+              <a href="https://news.fznews.com.cn/dsxw/20210111/5ffb8d2a0c6f1.shtml" target="_blank" style="color: aliceblue;height: 20px;">福州警方打造电信网络诈骗防控新模式</a>
+          </li>
+          <li>
+              <a href="https://www.thepaper.cn/newsDetail_forward_23883513" target="_blank" style="color: aliceblue;height: 20px;">能动司法·福州答卷 | 全民反诈 福州法院在行动</a>
+          </li>
+          <li>
+              <a href="https://news.fznews.com.cn/fzxw/20230418/77mad9A4nd.shtml" target="_blank" style="color: aliceblue;height: 20px;">福建首批反诈主题巴士亮相福州
+              </a>
+          </li>
+          <li>
+              <a href="https://www.fujian.gov.cn/xwdt/mszx/202312/t20231211_6328784.htm" target="_blank" style="color: aliceblue;height: 20px;">福州警校反诈联盟启动
+              </a>
+          </li>
+          <li>
+              <a href="https://news.fzu.edu.cn/info/1011/33269.htm" target="_blank" style="color: aliceblue;height: 20px;">福州市“警校反诈联盟”启动仪式在福州大学成功举办</a>
+          </li>
+          <li>
+              <a href="https://new.qq.com/rain/a/20231209A082AO00" target="_blank" style="color: aliceblue;height: 20px;">福州公安联合16所高校成立“警校反诈联盟”</a>
+          </li>
+      </ul>
+        </div>
+		  
+		  </div>
+      </div>
+    
+    </li>
+    <li>
+      
+  
+		   <div class="boxall" style="height:350px">
+        <div class="alltitle">诈骗类型分布</div>
+			   <div class="navboxall" id="echart4"></div>
+			   
+      </div>
+		   <div class="boxall" style="height:340px">
+        <div class="alltitle">诈骗数目变化趋势</div>
+			   <div class="navboxall" id="echart3"></div>
+      </div>
+    </li>
+    <li>
+      <div class="boxall" style="height:300px">
+        <div class="alltitle">年龄分布</div>
+        <div class="navboxall" id="echart1"></div>
+	
+      </div>
+		
+     
+		
+		 <div class="boxall" style="height:320px">
+        <div class="alltitle">性别分布</div>
+			 <div class="navboxall" id="echart2"></div>
+      </div>
+		
+		
+    </li>
+  </ul>
+
+</div>
+	</div>
+
+	<script>
+
+$(function(){
+	$('.wrap,.adduser').liMarquee({
+		direction: 'up',//身上滚动 
+		runshort: false,//内容不足时不滚动
+		scrollamount: 20//速度
+	});
+});
+
+</script> 
+	
+</body>
+</html>

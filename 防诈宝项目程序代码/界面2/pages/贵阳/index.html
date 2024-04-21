@@ -1,0 +1,147 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>防诈宝信息可视化平台</title>
+<link rel="icon" href="../../../../cover/html/img/Fevicon.png" type="image/png">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/echarts.min.js"></script> 
+<script type="text/javascript" src="js/js.js"></script> 
+<script type="text/javascript" src="js/jquery.limarquee.js"></script> 
+<script type="text/javascript" src="js/jquery.cxselect.min.js"></script> 
+	
+<link rel="stylesheet" href="css/comon0.css">
+</head>
+<body>
+<div style="background:#000d4a url(images/bg.jpg) center top;">
+	<div class="loading">
+  <div class="loadbox"> <img src="picture/loading.gif"> 页面加载中... </div>
+</div>
+	<div class="back"></div>
+<div class="head">
+	
+  <h1>贵阳市反诈大数据统计平台</h1>
+
+</div>
+	<script>
+var t = null;
+    t = setTimeout(time,1000);//開始运行
+    function time()
+    {
+       clearTimeout(t);//清除定时器
+       dt = new Date();
+		var y=dt.getFullYear();
+		var mt=dt.getMonth()+1;
+		var day=dt.getDate();
+       var h=dt.getHours();//获取时
+       var m=dt.getMinutes();//获取分
+       var s=dt.getSeconds();//获取秒
+       document.getElementById("showTime").innerHTML = y+"年"+mt+"月"+day+"日"+h+"时"+m+"分"+s+"秒";
+       t = setTimeout(time,1000); //设定定时器，循环运行     
+    } 
+
+</script>
+<div class="mainbox">
+  <ul class="clearfix">
+    <li>
+      <div class="boxall" style="height:300px;">
+        <div class="alltitle">贵阳市反诈信息云图</div>
+         <!--<div class="navboxall" id="echart5"></div>-->
+         <img src="../../img/洛阳.png" width="280px" height="250px" style="text-align: center;margin-left: 20px;margin-top: 10px;" alt="图片正在加载" title="贵阳市诈骗信息云图" >
+      </div>
+      <div class="boxall" style="height:330px;">
+        <div class="alltitle">贵阳市反诈新闻</div>
+       <div class="navboxall" >
+		  
+		  <div class="">
+        <ul>
+                   
+          <li style="height: 20px;">
+              <a href="https://new.qq.com/rain/a/20231017A06A0V00.html" target="_blank" style="color: aliceblue;height: 20px;">贵阳银行启动百场反诈宣传进社区公益活动
+                  </a>
+          </li>
+          <li>
+              <a href="https://www.thepaper.cn/newsDetail_forward_25587947" target="_blank" style="color: aliceblue;height: 20px;" >平安贵州冬季行动 | 贵阳观山湖：反诈宣传“组合拳” 守护平安“入人心”</a>
+          </li>
+          <li>
+              <a href="https://k.sina.com.cn/article_7517400647_1c0126e4705904folz.html" target="_blank" style="color: aliceblue;height: 20px;">贵阳银行金融反诈宣传进百家社区系列活动拉开帷幕</a>
+          </li>
+          <li>
+              <a href="http://news.qx162.com/cs/guiyang/2023/1205/382852.shtml" target="_blank" style="color: aliceblue;height: 20px;"> 最新！贵阳市反诈警情通报
+              </a>
+          </li>
+          <li>
+              <a href="https://k.sina.com.cn/article_1999472465_772d875104001gha9.html" target="_blank" style="color: aliceblue;height: 20px;">贵阳银行启动百场反诈宣传进社区公益活动</a>
+          </li>
+          <li>
+              <a href="https://new.qq.com/rain/a/20231018A01FP300.html" target="_blank" style="color: aliceblue;height: 20px;">贵阳银行金融反诈宣传进百家社区系列活动拉开帷幕</a>
+          </li>
+          <li>
+              <a href="https://k.sina.com.cn/article_3601611555_d6ac3b23027018bz9.html" target="_blank" style="color: aliceblue;height: 20px;">贵阳银行启动百场反诈宣传进社区公益活动
+              </a>
+          </li>
+          <li>
+              <a href="https://new.qq.com/rain/a/20231018A01FP300.html" target="_blank" style="color: aliceblue;height: 20px;">贵阳银行金融反诈宣传进百家社区系列活动拉开帷幕
+              </a>
+          </li>
+          <li>
+              <a href="https://new.qq.com/rain/a/20230824A081E500" target="_blank" style="color: aliceblue;height: 20px;">民生银行贵阳分行开展反诈识诈安全支付宣教活动</a>
+          </li>
+          <li>
+              <a href="https://k.sina.com.cn/article_3740356007_def14da7040038mzc.html" target="_blank" style="color: aliceblue;height: 20px;">有理贵阳 | “花式”反诈 “走新”更要“走心”</a>
+          </li>
+      </ul>
+        </div>
+		  
+		  </div>
+      </div>
+    
+    </li>
+    <li>
+      
+  
+		   <div class="boxall" style="height:350px">
+        <div class="alltitle">诈骗类型分布</div>
+			   <div class="navboxall" id="echart4"></div>
+			   
+      </div>
+		   <div class="boxall" style="height:340px">
+        <div class="alltitle">诈骗数目变化趋势</div>
+			   <div class="navboxall" id="echart3"></div>
+      </div>
+    </li>
+    <li>
+      <div class="boxall" style="height:300px">
+        <div class="alltitle">年龄分布</div>
+        <div class="navboxall" id="echart1"></div>
+	
+      </div>
+		
+     
+		
+		 <div class="boxall" style="height:320px">
+        <div class="alltitle">性别分布</div>
+			 <div class="navboxall" id="echart2"></div>
+      </div>
+		
+		
+    </li>
+  </ul>
+
+</div>
+	</div>
+
+	<script>
+
+$(function(){
+	$('.wrap,.adduser').liMarquee({
+		direction: 'up',//身上滚动 
+		runshort: false,//内容不足时不滚动
+		scrollamount: 20//速度
+	});
+});
+
+</script> 
+	
+</body>
+</html>
